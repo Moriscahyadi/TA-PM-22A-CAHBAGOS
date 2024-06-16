@@ -142,6 +142,17 @@
                 android:hint="Tambah Isi Lumbung"
                 android:textSize="15dp"
                 android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/tambah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:text="Tambah"
+                android:backgroundTint="#0e335f"
+                android:textSize="15dp"
+                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
