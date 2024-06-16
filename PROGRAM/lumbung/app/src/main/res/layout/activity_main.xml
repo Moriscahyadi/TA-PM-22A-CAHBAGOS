@@ -98,6 +98,17 @@
                 android:text="Kapasitas Lumbung"
                 android:textSize="15dp"
                 android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Isi Lumbung Sekarang"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
