@@ -33,6 +33,17 @@
             android:orientation="vertical"
             android:background="@drawable/background">
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Pilih Nama Tanaman"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
