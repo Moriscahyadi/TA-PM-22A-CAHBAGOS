@@ -25,6 +25,12 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.Password.text.toString()
             loginDatabase(username, password)
         }
+
+        binding.txRegis.setOnClickListener {
+            val intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun loginDatabase(username: String, password: String) {
