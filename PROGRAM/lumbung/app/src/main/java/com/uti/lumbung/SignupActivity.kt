@@ -1,6 +1,8 @@
 package com.uti.lumbung
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +18,9 @@ class SignupActivity : AppCompatActivity() {
 
         val binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        databaseHelper = dbHelper(this)
+
+
 
         enableEdgeToEdge()
         setContentView(R.layout.activity_signup)
@@ -23,6 +28,23 @@ class SignupActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+    }
+    private fun signupDatabase(username: String, password: String) {
+        if (username.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Username atau Password tidak boleh kosong !", Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+
+        val insertedRowId = databaseHelper.insertUser(username, password)
+        if (insertedRowId != -1L) {
+            Toast.makeText(this, "Signup Successful", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            Toast.makeText(this, "Signup Failed", Toast.LENGTH_SHORT).show()
         }
     }
 }
