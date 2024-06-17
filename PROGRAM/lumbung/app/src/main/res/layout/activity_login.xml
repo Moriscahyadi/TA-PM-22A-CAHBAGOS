@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:gravity="center_horizontal"
-            android:text="Sudah mempunyai akun ?" />
+            android:text="Belum mempunyai akun ?" />
 
         <Space
             android:layout_width="8dp"
