@@ -39,4 +39,15 @@ class dbHelper(private val context: Context) :
         val db = writableDatabase
         return db.insert(TABLE_NAME, null, values)
     }
+
+    fun readUser(username: String, password: String): Boolean {
+        val db = readableDatabase
+        val selection = "$COLUMN_USERNAME = ? AND $COLUMN_PASSWORD = ?"
+        val selectionArgs = arrayOf(username, password)
+        val cursor = db.query(TABLE_NAME, null, selection, selectionArgs, null, null, null)
+
+        val userExists = cursor.count > 0
+        cursor.close()
+        return userExists
+    }
 }
