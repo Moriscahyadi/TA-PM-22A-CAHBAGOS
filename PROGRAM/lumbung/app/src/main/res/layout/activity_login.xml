@@ -59,10 +59,19 @@
         android:text="@string/login" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
+        <TextView
+            android:id="@+id/txRgst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center_horizontal"
+            android:text="Sudah mempunyai akun ?" />
     </LinearLayout>
 
 </LinearLayout>
