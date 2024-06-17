@@ -26,6 +26,11 @@ class SignupActivity : AppCompatActivity() {
             signupDatabase(user, pass)
         }
 
+        binding.txLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         enableEdgeToEdge()
         setContentView(R.layout.activity_signup)
