@@ -7,39 +7,47 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.uti.lumbung.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var databaseHelper: dbHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)cd
-        val etUsername = findViewById<EditText>(R.id.etUsername)
-        val etPassword = findViewById<EditText>(R.id.etPassword)
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
-        btnLogin.setOnClickListener {
-            val username = etUsername.getText().toString()
-            val password = etPassword.getText().toString()
-            if (validateLogin(username, password)) {
-                // Login berhasil, navigasi ke halaman berikutnya
-                val intent = Intent(
-                    this@LoginActivity,
-                    HomeActivity::class.java
-                )
-                startActivity(intent)
-                finish() // Selesai LoginActivity agar tidak bisa kembali dengan tombol back
-            } else {
-                // Login gagal, tampilkan pesan kesalahan
-                Toast.makeText(
-                    this@LoginActivity,
-                    "Login failed. Please check your credentials.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+
+        val binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        databaseHelper = dbHelper(this)
+
+        binding.btnLogin.setOnClickListener {
+            val username = binding.Username.text.toString()
+            val password = binding.Password.text.toString()
+            loginDatabase(username, password)
+        }
+
+        binding.txRegis.setOnClickListener {
+            val intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
-    private fun validateLogin(username: String, password: String): Boolean {
-        // Misalnya, kita melakukan validasi sederhana di sini.
-        // Anda dapat mengganti logika validasi sesuai dengan kebutuhan aplikasi Anda.
-        return username == "admin" && password == "admin123"
+    private fun loginDatabase(username: String, password: String) {
+//        periksa apakah username dan password sudah diisi
+        if (username.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Username atau Password tidak boleh kosong !", Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+        val userExists = databaseHelper.readUser(username, password)
+        if (userExists) {
+//            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            Toast.makeText(this, "Username atau Password tidak sesuai !", Toast.LENGTH_SHORT).show()
+        }
     }
 }
