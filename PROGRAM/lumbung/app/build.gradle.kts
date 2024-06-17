@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.uti.lumbung"
-        minSdk = 31
+        minSdk = 23
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -33,7 +33,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-//    mendaftarkan binding
     buildFeatures{
         viewBinding = true
     }
