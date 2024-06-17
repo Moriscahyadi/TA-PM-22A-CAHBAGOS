@@ -19,5 +19,16 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         databaseHelper = dbHelper(this)
+
+
+    }
+
+    private fun loginDatabase(username: String, password: String) {
+//        periksa apakah username dan password sudah diisi
+        if (username.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Username atau Password tidak boleh kosong !", Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
     }
 }
