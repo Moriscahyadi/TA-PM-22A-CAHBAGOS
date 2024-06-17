@@ -1,5 +1,6 @@
 package com.uti.lumbung
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -28,5 +29,14 @@ class dbHelper(private val context: Context) :
         val dropTableQuery = "DROP TABLE IF EXISTS $TABLE_NAME"
         db?.execSQL(dropTableQuery)
         onCreate(db)
+    }
+
+    fun insertUser(username: String, password: String): Long {
+        val values = ContentValues().apply {
+            put(COLUMN_USERNAME, username)
+            put(COLUMN_PASSWORD, password)
+        }
+        val db = writableDatabase
+        return db.insert(TABLE_NAME, null, values)
     }
 }
