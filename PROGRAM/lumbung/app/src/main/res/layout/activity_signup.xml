@@ -63,7 +63,13 @@
         app:layout_constraintTop_toBottomOf="@+id/Password" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"></LinearLayout>
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/btnRegis"
+        app:layout_constraintStart_toStartOf="@+id/btnRegis"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegis">
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
