@@ -20,7 +20,11 @@ class LoginActivity : AppCompatActivity() {
 
         databaseHelper = dbHelper(this)
 
-
+        binding.btnLogin.setOnClickListener {
+            val username = binding.Username.text.toString()
+            val password = binding.Password.text.toString()
+            loginDatabase(username, password)
+        }
     }
 
     private fun loginDatabase(username: String, password: String) {
