@@ -20,6 +20,11 @@ class SignupActivity : AppCompatActivity() {
         setContentView(binding.root)
         databaseHelper = dbHelper(this)
 
+        binding.btnRegis.setOnClickListener {
+            val user = binding.Username.text.toString()
+            val pass = binding.Password.text.toString()
+            signupDatabase(user, pass)
+        }
 
 
         enableEdgeToEdge()
