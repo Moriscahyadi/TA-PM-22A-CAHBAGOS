@@ -17,6 +17,12 @@
         app:srcCompat="@drawable/login"
         android:layout_gravity="center"/>
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
